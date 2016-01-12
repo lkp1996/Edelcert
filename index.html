@@ -6,13 +6,10 @@
 </head>
 <body onload="display_all()">
 	<div id="tableau_entr_cert"></div>
-	<form>
-		Name: <input type="search">
-		Scope: <select id="scopes_list"></select>
-		Standard: <select id="standard_list"></select>
-		Status: <select id="status_list"></select>
-		<input type="submit">
-	</form>
+		Name: <input type="text" id ="search_name" onkeyup="search_name()">
+		Scope: <select id="scopes_list" onchange="search_scope()"></select>
+		Standard: <select id="standard_list" onchange="search_standard()"></select>
+		Status: <select id="status_list" onchange="search_status()"></select>
 	<script src="edelcert.js"></script>
 </body>
 </html>

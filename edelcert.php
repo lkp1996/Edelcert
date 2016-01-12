@@ -1,7 +1,7 @@
 <?php
 
 $hostnameDB = "localhost";
-$database = "edelcert";
+$database = "incertit_edel";
 $usernameDB = "root";
 $passwordDB = "root";
 
@@ -23,10 +23,12 @@ if ($connexion->connect_error) {
 
 		 	echo "[";
 
-		     while($row = $result->fetch_assoc()) {
+		 	$i = 0;
+		    while($row = $result->fetch_assoc()) {
 
+		    	$i += 1;
 		         echo '{"Name" : "' . $row["Name"]. '", "Address" : "' . $row["Address"]. '", "City" : "' . $row["City"]. '", "Country" : "' . $row["Country"]. '", "Scope" : "' . $row["PK_Scope"]. ' - ' . $row["Scope_Name"] . '", "Standard" : "' . $row["Standard"]. '", "Status" : "' . $row["Status"]. '", "Initial_Certification_Date" : "' . $row["Initial_Certification_Date"]. '", "Certificate_Expiry_Date" : "' . $row["Certificate_Expiry_Date"] . '"}';
-		        if($row["PK_Certified_Company"] < $result->num_rows){
+		        if($i < $result->num_rows){
 		        	echo ", ";
 		        }
 		    }
@@ -47,7 +49,7 @@ if ($connexion->connect_error) {
 
 		 	$i = 0;
 		     while($row = $result2->fetch_assoc()) {
-		     	$i = $i + 1;
+		     	$i += 1;
 		         echo '{"PK_Scope" : "' . $row["PK_Scope"]. '", "Name" : "' . $row["Name"] . '"}';
 		        if($i < $result2->num_rows){
 		        	echo ", ";
@@ -70,7 +72,7 @@ if ($connexion->connect_error) {
 
 		 	$i = 0;
 		     while($row = $result3->fetch_assoc()) {
-		     	$i = $i + 1;
+		     	$i += 1;
 		         echo '{"Name" : "' . $row["Name"]. '"}';
 		        if($i < $result3->num_rows){
 		        	echo ", ";
@@ -93,7 +95,7 @@ if ($connexion->connect_error) {
 
 		 	$i = 0;
 		     while($row = $result4->fetch_assoc()) {
-		     	$i = $i + 1;
+		     	$i += 1;
 		         echo '{"Name" : "' . $row["Name"]. '"}';
 		        if($i < $result4->num_rows){
 		        	echo ", ";
